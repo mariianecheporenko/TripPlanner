@@ -78,9 +78,21 @@ namespace TripPlannerAPIWebApp.Controllers
         [HttpPost]
         public async Task<ActionResult<Activity>> PostActivity(Activity activity)
         {
+            // Cost validation
+            if (activity.Cost < 0)
+            {
+                return BadRequest("Вартість не може бути від'ємною. Хіба що вам за це доплачують.");
+            }
+
+            // Check if there is trip
+            var destination = await _context.Destinations.FindAsync(activity.DestinationId);
+            if (destination == null)
+            {
+                return NotFound("Такого місця призначення не існує в базі.");
+            }
+
             _context.Activities.Add(activity);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetActivity", new { id = activity.Id }, activity);
         }
 

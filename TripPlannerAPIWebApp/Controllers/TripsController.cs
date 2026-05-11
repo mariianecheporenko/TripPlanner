@@ -78,9 +78,14 @@ namespace TripPlannerAPIWebApp.Controllers
         [HttpPost]
         public async Task<ActionResult<Trip>> PostTrip(Trip trip)
         {
+            // Date validation
+            if (trip.EndDate < trip.StartDate)
+            {
+                return BadRequest("Дата завершення не може бути раніше дати початку. Подорожей в минуле ще не вигадали)");
+            }
+
             _context.Trips.Add(trip);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetTrip", new { id = trip.Id }, trip);
         }
 

@@ -78,9 +78,18 @@ namespace TripPlannerAPIWebApp.Controllers
         [HttpPost]
         public async Task<ActionResult<Destination>> PostDestination(Destination destination)
         {
+            if (destination.SortOrder < 0)
+            {
+                return BadRequest("Порядок відображення міста в маршруті має бути позитивним числом.");
+            }
+
+            if (destination.ArrivalDate > destination.DepartureDate)
+            {
+                return BadRequest("Ви не можете виїхати з міста раніше, ніж приїхали в нього.");
+            }
+
             _context.Destinations.Add(destination);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetDestination", new { id = destination.Id }, destination);
         }
 

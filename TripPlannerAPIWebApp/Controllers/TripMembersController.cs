@@ -78,9 +78,17 @@ namespace TripPlannerAPIWebApp.Controllers
         [HttpPost]
         public async Task<ActionResult<TripMember>> PostTripMember(TripMember tripMember)
         {
+            // Member duplication
+            var exists = await _context.TripMembers
+                .AnyAsync(m => m.TripId == tripMember.TripId && m.UserId == tripMember.UserId);
+
+            if (exists)
+            {
+                return Conflict("Цей користувач уже є учасником поїздки.");
+            }
+
             _context.TripMembers.Add(tripMember);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetTripMember", new { id = tripMember.Id }, tripMember);
         }
 
