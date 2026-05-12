@@ -1,0 +1,8 @@
+$kind: http-request
+name: GET Activity by ID
+method: GET
+url: '{{baseUrl}}/api/Activities/{{activityId}}'
+order: 2000
+pathVariables:
+  - key: activityId
+    value: ''

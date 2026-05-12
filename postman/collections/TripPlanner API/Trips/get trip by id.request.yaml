@@ -1,0 +1,8 @@
+$kind: http-request
+name: GET Trip by ID
+method: GET
+url: '{{baseUrl}}/api/Trips/{{tripId}}'
+order: 2000
+pathVariables:
+  - key: tripId
+    value: ''

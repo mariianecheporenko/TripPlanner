@@ -1,0 +1,5 @@
+$kind: http-request
+name: GET All Activities
+method: GET
+url: '{{baseUrl}}/api/Activities'
+order: 1000

@@ -1,0 +1,26 @@
+$kind: http-request
+name: POST /api/Destinations
+url: "{{baseUrl}}/api/Destinations"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "tripId": "{{tripId}}",
+      "city": "Kyiv",
+      "country": "Ukraine",
+      "countryCode": "UA",
+      "sortOrder": 1,
+      "arrivalDate": "2026-07-02T09:00:00Z",
+      "departureDate": "2026-07-04T18:00:00Z",
+      "notes": "Central city stay"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.response.to.have.status(201);
+      pm.collectionVariables.set('destinationId', pm.response.json().id);
+    language: text/javascript
+order: 1000

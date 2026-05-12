@@ -1,0 +1,23 @@
+$kind: http-request
+name: POST /api/TripMembers
+url: "{{baseUrl}}/api/TripMembers"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "tripId": "{{tripId}}",
+      "userId": "{{userId}}",
+      "role": 1,
+      "inviteStatus": "Accepted",
+      "personalBudget": 400
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.response.to.have.status(201);
+      pm.collectionVariables.set('tripMemberId', pm.response.json().id);
+    language: text/javascript
+order: 1000

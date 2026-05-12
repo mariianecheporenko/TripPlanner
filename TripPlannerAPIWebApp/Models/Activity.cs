@@ -9,7 +9,7 @@ namespace TripPlannerAPI.Models
         public Guid Id { get; set; } = Guid.NewGuid();
 
         public Guid DestinationId { get; set; }
-        public Destination Destination { get; set; } = null!;
+        public Destination? Destination { get; set; }
 
         [Required, MaxLength(200)]
         public string Title { get; set; } = string.Empty;

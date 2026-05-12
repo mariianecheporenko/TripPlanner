@@ -1,0 +1,17 @@
+$kind: http-request
+name: Add Trip Member
+method: POST
+url: "{{baseUrl}}/api/TripMembers"
+order: 3000
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "tripId": "2f308624-477a-4a0b-bf41-8f7a25d490d2",
+      "userId": "0573d267-1f96-4042-842b-80e5e53d9c24",
+      "role": 0,
+      "inviteStatus": "Accepted",
+      "personalBudget": 1000.00
+    }

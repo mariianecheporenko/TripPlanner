@@ -1,0 +1,23 @@
+$kind: http-request
+name: Create Destination
+method: POST
+url: '{{baseUrl}}/api/Destinations'
+order: 3000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "tripId": "{{tripId}}",
+      "city": "Paris",
+      "country": "France",
+      "countryCode": "FR",
+      "sortOrder": 1,
+      "arrivalDate": "2026-07-01T00:00:00Z",
+      "departureDate": "2026-07-07T00:00:00Z",
+      "latitude": 48.8566,
+      "longitude": 2.3522,
+      "notes": "Visit the Eiffel Tower"
+    }

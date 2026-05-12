@@ -1,0 +1,21 @@
+$kind: http-request
+name: Create Trip
+method: POST
+url: '{{baseUrl}}/api/Trips'
+order: 3000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Summer Europe Trip",
+      "description": "A wonderful summer adventure across Europe",
+      "startDate": "2026-07-01T00:00:00Z",
+      "endDate": "2026-07-21T00:00:00Z",
+      "currency": "EUR",
+      "budgetLimit": 3000.00,
+      "budgetWarningThresholdPercent": 80,
+      "status": 0
+    }

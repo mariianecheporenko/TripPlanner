@@ -1,0 +1,10 @@
+$kind: collection
+description: Єдиний набір запитів для всіх контролерів TripPlanner API з базовими тестами.
+variables:
+  baseUrl: http://localhost:5230
+  userId: ""
+  tripId: ""
+  destinationId: ""
+  activityId: ""
+  tripMemberId: ""
+  tripHistoryId: ""

@@ -1,0 +1,6 @@
+$kind: collection
+name: TripPlanner API
+variables:
+  baseUrl: https://localhost:44352
+  tripId: ""
+  userId: ""

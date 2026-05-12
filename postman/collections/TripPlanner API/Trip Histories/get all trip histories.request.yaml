@@ -1,0 +1,5 @@
+$kind: http-request
+name: GET All Trip Histories
+method: GET
+url: '{{baseUrl}}/api/TripHistories'
+order: 1000

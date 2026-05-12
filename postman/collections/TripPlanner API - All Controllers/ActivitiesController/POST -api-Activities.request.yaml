@@ -1,0 +1,27 @@
+$kind: http-request
+name: POST /api/Activities
+url: "{{baseUrl}}/api/Activities"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "destinationId": "{{destinationId}}",
+      "title": "City Tour",
+      "description": "Walking tour",
+      "type": 2,
+      "startTime": "2026-07-05T10:00:00Z",
+      "endTime": "2026-07-05T13:00:00Z",
+      "cost": 25,
+      "location": "Old Town",
+      "sortOrder": 1
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.response.to.have.status(201);
+      pm.collectionVariables.set('activityId', pm.response.json().id);
+    language: text/javascript
+order: 1000

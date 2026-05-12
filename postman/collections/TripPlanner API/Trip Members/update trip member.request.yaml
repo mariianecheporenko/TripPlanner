@@ -1,0 +1,22 @@
+$kind: http-request
+name: Update Trip Member
+method: PUT
+url: '{{baseUrl}}/api/TripMembers/{{tripMemberId}}'
+order: 4000
+headers:
+  - key: Content-Type
+    value: application/json
+pathVariables:
+  - key: tripMemberId
+    value: ''
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{tripMemberId}}",
+      "tripId": "{{tripId}}",
+      "userId": "{{userId}}",
+      "role": 1,
+      "inviteStatus": "Accepted",
+      "personalBudget": 1200.00
+    }

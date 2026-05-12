@@ -1,0 +1,25 @@
+$kind: http-request
+name: Update Trip
+method: PUT
+url: '{{baseUrl}}/api/Trips/{{tripId}}'
+order: 4000
+headers:
+  - key: Content-Type
+    value: application/json
+pathVariables:
+  - key: tripId
+    value: ''
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{tripId}}",
+      "title": "Summer Europe Trip Updated",
+      "description": "Updated description",
+      "startDate": "2026-07-01T00:00:00Z",
+      "endDate": "2026-07-21T00:00:00Z",
+      "currency": "EUR",
+      "budgetLimit": 3500.00,
+      "budgetWarningThresholdPercent": 80,
+      "status": 1
+    }

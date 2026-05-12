@@ -1,0 +1,27 @@
+$kind: http-request
+name: POST /api/Trips
+url: "{{baseUrl}}/api/Trips"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "title": "Postman Summer Trip",
+      "description": "Created by Postman collection",
+      "startDate": "2026-07-01T08:00:00Z",
+      "endDate": "2026-07-10T20:00:00Z",
+      "currency": "USD",
+      "budgetLimit": 1500,
+      "budgetWarningThresholdPercent": 80,
+      "status": 0
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Status 201', function () { pm.response.to.have.status(201); });
+      var json = pm.response.json();
+      pm.collectionVariables.set('tripId', json.id);
+    language: text/javascript
+order: 1000

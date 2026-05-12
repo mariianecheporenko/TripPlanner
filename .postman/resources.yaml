@@ -5,3 +5,7 @@ workspace:
 localResources:
   specs:
     - ..\TripPlannerAPIWebApp\obj\Debug\net10.0\EndpointInfo\TripPlannerAPIWebApp.json
+
+cloudResources:
+  collections:
+    ..\postman\collections\TripPlanner API - All Controllers: 4e177a3c-06c4-4ad1-870f-99d7d201466f

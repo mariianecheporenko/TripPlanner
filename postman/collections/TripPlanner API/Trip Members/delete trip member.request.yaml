@@ -1,0 +1,8 @@
+$kind: http-request
+name: Delete Trip Member
+method: DELETE
+url: '{{baseUrl}}/api/TripMembers/{{tripMemberId}}'
+order: 5000
+pathVariables:
+  - key: tripMemberId
+    value: ''

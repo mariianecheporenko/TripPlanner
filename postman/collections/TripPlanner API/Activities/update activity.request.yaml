@@ -1,0 +1,30 @@
+$kind: http-request
+name: Update Activity
+method: PUT
+url: '{{baseUrl}}/api/Activities/{{activityId}}'
+order: 4000
+headers:
+  - key: Content-Type
+    value: application/json
+pathVariables:
+  - key: activityId
+    value: ''
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{activityId}}",
+      "destinationId": "{{destinationId}}",
+      "title": "Eiffel Tower Visit - Updated",
+      "description": "Visit the iconic Eiffel Tower",
+      "type": 2,
+      "startTime": "2026-07-02T10:00:00Z",
+      "endTime": "2026-07-02T14:00:00Z",
+      "cost": 30.00,
+      "location": "Champ de Mars, Paris",
+      "latitude": 48.8584,
+      "longitude": 2.2945,
+      "sortOrder": 1,
+      "isFlexible": false,
+      "notes": "Updated notes"
+    }

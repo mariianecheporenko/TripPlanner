@@ -1,0 +1,8 @@
+$kind: http-request
+name: Delete Activity
+method: DELETE
+url: '{{baseUrl}}/api/Activities/{{activityId}}'
+order: 5000
+pathVariables:
+  - key: activityId
+    value: ''

@@ -1,0 +1,25 @@
+$kind: http-request
+name: POST /api/Users
+url: "{{baseUrl}}/api/Users"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "displayName": "Postman User",
+      "email": "postman.user+{{$timestamp}}@example.com",
+      "passwordHash": "hash_123",
+      "phoneNumber": "+15551234567",
+      "isActive": true
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Status 201', function () { pm.response.to.have.status(201); });
+      var json = pm.response.json();
+      pm.expect(json).to.have.property('id');
+      pm.collectionVariables.set('userId', json.id);
+    language: text/javascript
+order: 1000

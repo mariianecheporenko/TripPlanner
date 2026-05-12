@@ -1,0 +1,24 @@
+$kind: http-request
+name: Update Trip History
+method: PUT
+url: '{{baseUrl}}/api/TripHistories/{{tripHistoryId}}'
+order: 4000
+headers:
+  - key: Content-Type
+    value: application/json
+pathVariables:
+  - key: tripHistoryId
+    value: ''
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{tripHistoryId}}",
+      "tripId": "{{tripId}}",
+      "userId": "{{userId}}",
+      "action": 1,
+      "description": "Trip was updated",
+      "entityType": "Trip",
+      "entityId": "{{tripId}}",
+      "ipAddress": "127.0.0.1"
+    }

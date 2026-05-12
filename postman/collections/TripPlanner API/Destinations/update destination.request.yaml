@@ -1,0 +1,27 @@
+$kind: http-request
+name: Update Destination
+method: PUT
+url: '{{baseUrl}}/api/Destinations/{{destinationId}}'
+order: 4000
+headers:
+  - key: Content-Type
+    value: application/json
+pathVariables:
+  - key: destinationId
+    value: ''
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{destinationId}}",
+      "tripId": "{{tripId}}",
+      "city": "Paris",
+      "country": "France",
+      "countryCode": "FR",
+      "sortOrder": 1,
+      "arrivalDate": "2026-07-01T00:00:00Z",
+      "departureDate": "2026-07-08T00:00:00Z",
+      "latitude": 48.8566,
+      "longitude": 2.3522,
+      "notes": "Extended stay in Paris"
+    }

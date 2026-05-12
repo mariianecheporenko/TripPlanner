@@ -1,0 +1,8 @@
+$kind: http-request
+name: GET Destination by ID
+method: GET
+url: '{{baseUrl}}/api/Destinations/{{destinationId}}'
+order: 2000
+pathVariables:
+  - key: destinationId
+    value: ''

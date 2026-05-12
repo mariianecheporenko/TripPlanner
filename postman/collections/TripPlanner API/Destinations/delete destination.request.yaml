@@ -1,0 +1,8 @@
+$kind: http-request
+name: Delete Destination
+method: DELETE
+url: '{{baseUrl}}/api/Destinations/{{destinationId}}'
+order: 5000
+pathVariables:
+  - key: destinationId
+    value: ''

@@ -1,0 +1,23 @@
+$kind: http-request
+name: Update User
+method: PUT
+url: '{{baseUrl}}/api/Users/{{userId}}'
+order: 4000
+headers:
+  - key: Content-Type
+    value: application/json
+pathVariables:
+  - key: userId
+    value: ''
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{userId}}",
+      "displayName": "Mary Updated",
+      "email": "mary@example.com",
+      "passwordHash": "hashed_password_here",
+      "phoneNumber": "+380991234567",
+      "avatarUrl": null,
+      "isActive": true
+    }

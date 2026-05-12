@@ -1,0 +1,20 @@
+$kind: http-request
+name: Create Trip History
+method: POST
+url: '{{baseUrl}}/api/TripHistories'
+order: 3000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "tripId": "{{tripId}}",
+      "userId": "{{userId}}",
+      "action": 0,
+      "description": "Trip was created",
+      "entityType": "Trip",
+      "entityId": "{{tripId}}",
+      "ipAddress": "127.0.0.1"
+    }

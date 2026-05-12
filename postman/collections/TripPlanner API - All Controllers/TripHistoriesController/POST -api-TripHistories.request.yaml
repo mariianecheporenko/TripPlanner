@@ -1,0 +1,24 @@
+$kind: http-request
+name: POST /api/TripHistories
+url: "{{baseUrl}}/api/TripHistories"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "tripId": "{{tripId}}",
+      "userId": "{{userId}}",
+      "action": 0,
+      "description": "Trip created from Postman test",
+      "entityType": "Trip",
+      "entityId": "{{tripId}}"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.response.to.have.status(201);
+      pm.collectionVariables.set('tripHistoryId', pm.response.json().id);
+    language: text/javascript
+order: 1000

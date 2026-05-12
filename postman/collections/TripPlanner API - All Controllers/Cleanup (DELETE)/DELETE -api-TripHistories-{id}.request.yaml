@@ -1,0 +1,9 @@
+$kind: http-request
+name: DELETE /api/TripHistories/{id}
+url: "{{baseUrl}}/api/TripHistories/{{tripHistoryId}}"
+method: DELETE
+scripts:
+  - type: afterResponse
+    code: pm.response.to.have.status(204);
+    language: text/javascript
+order: 2000

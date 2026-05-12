@@ -1,0 +1,5 @@
+$kind: http-request
+name: GET All Destinations
+method: GET
+url: '{{baseUrl}}/api/Destinations'
+order: 1000

@@ -8,7 +8,7 @@ namespace TripPlannerAPI.Models
         public Guid Id { get; set; } = Guid.NewGuid();
 
         public Guid TripId { get; set; }
-        public Trip Trip { get; set; } = null!;
+        public Trip? Trip { get; set; }
 
         [Required, MaxLength(200)]
         public string City { get; set; } = string.Empty;

@@ -1,0 +1,27 @@
+$kind: http-request
+name: Create Activity
+method: POST
+url: '{{baseUrl}}/api/Activities'
+order: 3000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "destinationId": "{{destinationId}}",
+      "title": "Eiffel Tower Visit",
+      "description": "Visit the iconic Eiffel Tower",
+      "type": 2,
+      "startTime": "2026-07-02T10:00:00Z",
+      "endTime": "2026-07-02T13:00:00Z",
+      "cost": 25.00,
+      "location": "Champ de Mars, Paris",
+      "latitude": 48.8584,
+      "longitude": 2.2945,
+      "bookingReference": "EIF-2026-001",
+      "sortOrder": 1,
+      "isFlexible": false,
+      "notes": "Book tickets in advance"
+    }
